@@ -5,7 +5,7 @@ const salt = bcrypt.genSaltSync(10);
 let CheckUserLogin = (email, password) => {
   return new Promise(async (resolve, reject) => {
     let userData = {
-      errCode: 403,
+      errCode: 401,
       message: "email or password not found",
       data: null,
     };
@@ -18,7 +18,7 @@ let CheckUserLogin = (email, password) => {
           raw: true,
         });
         if (user) {
-          let checkPassword = await bcrypt.compareSync(password, user.password);
+          let checkPassword = await bcrypt.compare(password, user.password);
           if (checkPassword) {
             delete user.password;
             userData.errCode = null;
@@ -29,13 +29,10 @@ let CheckUserLogin = (email, password) => {
       }
       resolve(userData);
     } catch (error) {
-      userData.errCode = 500;
-      userData.message = error.message;
-      reject(userData);
+      reject(error);
     }
   });
 };
-
 let CheckUserEmail = (userEmail) => {
   return new Promise(async (resolve, reject) => {
     try {
