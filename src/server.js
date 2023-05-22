@@ -8,7 +8,7 @@ require("dotenv").config();
 
 let app = express();
 
-const whitelist = ["http://localhost:3000"];
+const whitelist = ["http://localhost:3000", "http://localhost:8080"];
 const corsOptions = {
   origin: function (origin, callback) {
     if (!origin || whitelist.indexOf(origin) !== -1) {

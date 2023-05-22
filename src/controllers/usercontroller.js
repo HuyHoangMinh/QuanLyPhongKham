@@ -13,6 +13,17 @@ let userLogin = async (req, res) => {
   return res.status(200).json(userData);
 };
 
+let getAllUsers = async (req, res) => {
+  let id = req.body.id; // ALL or id
+  let userData = await userService.getAllUsers(id);
+  return res.status(200).json({
+    errCode: null,
+    message: "success",
+    data: userData,
+  });
+};
+
 module.exports = {
   userLogin,
+  getAllUsers,
 };

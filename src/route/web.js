@@ -6,6 +6,8 @@ let router = express.Router();
 
 let initWebRoutes = (app) => {
   router.post("/api/login", userController.userLogin);
+  router.get("/api/get-all-user", userController.getAllUsers);
+
   router.get("/", homeController.getHomePage);
   router.get("/about", homeController.getAboutPage);
   router.get("/crud", homeController.getCRUD);
