@@ -9,6 +9,9 @@
     "query": {
       "raw": true
     },
+    "dialectOptions": {
+      "useUTC": false
+    },
     "timezone": "+07:00"
   },
   "test": {
@@ -21,6 +24,9 @@
     "query": {
       "raw": true
     },
+    "dialectOptions": {
+      "useUTC": false
+    },
     "timezone": "+07:00"
   },
   "production": {
@@ -32,6 +38,9 @@
     "logging": false,
     "query": {
       "raw": true
+    },
+    "dialectOptions": {
+      "useUTC": false
     },
     "timezone": "+07:00"
   }
